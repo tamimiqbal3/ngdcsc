@@ -6,7 +6,7 @@
     <title>NGDC Science Club</title>
     <meta
       name="google-site-verification"
-      content="ODlN5SFN2K-4csTKNkbAkSArWtCNvamxlZt-YWp3LyQ"
+      content="goU_o8orI5CDqFEfvv1yGVwDyzeiJoLOQ62bYoaVDAA"
     />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -24,12 +24,10 @@
         padding: 60px 20px;
         text-align: center;
       }
-
       .about .section-title {
         font-size: 2rem;
         margin-bottom: 40px;
       }
-
       .about-content {
         display: flex;
         flex-direction: column;
@@ -38,24 +36,20 @@
         max-width: 900px;
         margin: 0 auto;
       }
-
       .about-text {
         width: 100%;
       }
-
       .about-description {
         font-size: 1.1rem;
         line-height: 1.6;
         margin-bottom: 30px;
       }
-
       /* Mission & Vision Cards */
       .mission-vision {
         display: flex;
         flex-direction: column;
         gap: 20px;
       }
-
       .mv-card {
         background-color: #f9f9f9;
         padding: 20px;
@@ -63,18 +57,15 @@
         text-align: center;
         width: 100%;
       }
-
       .mv-card i {
         font-size: 2rem;
         margin-bottom: 10px;
         color: #3c4de7;
       }
-
       .mv-card h4 {
         margin-bottom: 10px;
         font-size: 1.2rem;
       }
-
       /* Activities List */
       .activities-list {
         list-style: none;
@@ -83,7 +74,6 @@
         max-width: 600px;
         text-align: left;
       }
-
       .activities-list li {
         display: flex;
         align-items: center;
@@ -91,12 +81,10 @@
         margin-bottom: 15px;
         font-size: 1rem;
       }
-
       .activities-list i {
         color: #27ae60;
         min-width: 24px;
       }
-
       /* Footer Social Links */
       .footer-social a {
         display: inline-flex;
@@ -111,18 +99,15 @@
         text-decoration: none;
         transition: all 0.3s ease;
       }
-
       .footer-social a:hover {
         background: #2a3ac9;
         transform: translateY(-3px);
       }
-
       .ig-link {
         color: green;
         text-decoration: underline;
         cursor: pointer;
       }
-
       /* Responsive for larger screens */
       @media (min-width: 768px) {
         .mission-vision {
@@ -130,90 +115,8 @@
           justify-content: center;
           gap: 40px;
         }
-
         .mv-card {
           width: 300px;
-        }
-      }
-
-      /* ===== COPY LINK BUTTON STYLES ===== */
-      .copy-link-btn {
-        background: #6c757d;
-        color: white;
-        padding: 6px 12px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-        font-size: 0.8rem;
-        transition: all 0.3s;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        margin-right: 5px;
-      }
-
-      .copy-link-btn:hover {
-        background: #5a6268;
-        transform: translateY(-2px);
-      }
-
-      .copy-link-btn i {
-        font-size: 0.9rem;
-      }
-
-      /* Copy Success Message */
-      .copy-success-message {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #28a745;
-        color: white;
-        padding: 15px 25px;
-        border-radius: 8px;
-        font-size: 1rem;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        animation: slideIn 0.3s ease-out;
-      }
-
-      .copy-success-message i {
-        font-size: 1.2rem;
-      }
-
-      @keyframes slideIn {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .copy-link-btn {
-          padding: 5px 10px;
-          font-size: 0.75rem;
-        }
-        .copy-success-message {
-          left: 20px;
-          right: 20px;
-          bottom: 20px;
-          text-align: center;
-          justify-content: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .copy-link-btn {
-          width: 100%;
-          justify-content: center;
-          margin-right: 0;
-          margin-bottom: 5px;
         }
       }
     </style>
@@ -640,6 +543,12 @@
           <li>
             <a href="#about"><i class="fas fa-info-circle"></i> About</a>
           </li>
+          <!-- নতুন Fest মেনু এখানে যোগ করা হয়েছে -->
+          <li>
+            <a href="https://ngdcsc.fest.vercel.app" target="_blank"
+              ><i class="fas fa-rocket"></i> Fest</a
+            >
+          </li>
           <li>
             <a href="#" class="join-btn" id="mainJoinBtn"
               ><i class="fas fa-user-plus"></i> Join Now</a
@@ -999,70 +908,6 @@
         if (adminInstagramInput) {
           adminInstagramInput.value =
             localStorage.getItem("instagramLink") || defaultInstagramLink;
-        }
-      });
-
-      // ===== COPY LINK FUNCTIONALITY =====
-      // This function will be called from JavaScript file
-      window.copyToClipboard = function(type, index) {
-        const baseUrl = window.location.origin + window.location.pathname;
-        const fullUrl = baseUrl + '#' + type + '-' + index;
-        
-        navigator.clipboard.writeText(fullUrl).then(() => {
-          showCopySuccessMessage();
-        }).catch(err => {
-          const textarea = document.createElement('textarea');
-          textarea.value = fullUrl;
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textarea);
-          showCopySuccessMessage();
-        });
-      }
-
-      function showCopySuccessMessage() {
-        const existingMessage = document.getElementById('copySuccessMessage');
-        if (existingMessage) {
-          existingMessage.remove();
-        }
-        
-        const message = document.createElement('div');
-        message.id = 'copySuccessMessage';
-        message.className = 'copy-success-message';
-        message.innerHTML = '<i class="fas fa-check-circle"></i> Link copied to clipboard!';
-        document.body.appendChild(message);
-        
-        setTimeout(() => {
-          message.remove();
-        }, 2000);
-      }
-
-      // Handle anchor links
-      window.addEventListener('load', function() {
-        if (window.location.hash) {
-          const hash = window.location.hash.substring(1);
-          const [type, index] = hash.split('-');
-          
-          if (type === 'notice' && index) {
-            const noticeElement = document.querySelector(`[data-notice-id="${index}"]`);
-            if (noticeElement) {
-              noticeElement.style.backgroundColor = '#fff3cd';
-              noticeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              setTimeout(() => {
-                noticeElement.style.backgroundColor = '';
-              }, 3000);
-            }
-          } else if (type === 'executive' && index) {
-            const execElement = document.querySelector(`[data-executive-id="${index}"]`);
-            if (execElement) {
-              execElement.style.backgroundColor = '#fff3cd';
-              execElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              setTimeout(() => {
-                execElement.style.backgroundColor = '';
-              }, 3000);
-            }
-          }
         }
       });
     </script>
