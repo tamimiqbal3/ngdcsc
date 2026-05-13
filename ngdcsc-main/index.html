@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NGDC Science Club</title>
+    <meta
+      name="google-site-verification"
+      content="ODlN5SFN2K-4csTKNkbAkSArWtCNvamxlZt-YWp3LyQ"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="logo.png" type="image/png" />
+    <style>
+      /* About Section */
+      .about {
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .about .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        width: 100%;
+      }
+
+      .about-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      /* Mission & Vision Cards */
+      .mission-vision {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .mv-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .mv-card i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #3c4de7;
+      }
+
+      .mv-card h4 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      /* Activities List */
+      .activities-list {
+        list-style: none;
+        padding: 0;
+        margin: 30px auto 0 auto;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .activities-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        font-size: 1rem;
+      }
+
+      .activities-list i {
+        color: #27ae60;
+        min-width: 24px;
+      }
+
+      /* Footer Social Links */
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #3c4de7;
+        color: white;
+        border-radius: 50%;
+        margin-right: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        background: #2a3ac9;
+        transform: translateY(-3px);
+      }
+
+      .ig-link {
+        color: green;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      /* Responsive for larger screens */
+      @media (min-width: 768px) {
+        .mission-vision {
+          flex-direction: row;
+          justify-content: center;
+          gap: 40px;
+        }
+
+        .mv-card {
+          width: 300px;
+        }
+      }
+
+      /* ===== COPY LINK BUTTON STYLES ===== */
+      .copy-link-btn {
+        background: #6c757d;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-right: 5px;
+      }
+
+      .copy-link-btn:hover {
+        background: #5a6268;
+        transform: translateY(-2px);
+      }
+
+      .copy-link-btn i {
+        font-size: 0.9rem;
+      }
+
+      /* Copy Success Message */
+      .copy-success-message {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #28a745;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        font-size: 1rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: slideIn 0.3s ease-out;
+      }
+
+      .copy-success-message i {
+        font-size: 1.2rem;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .copy-link-btn {
+          padding: 5px 10px;
+          font-size: 0.75rem;
+        }
+        .copy-success-message {
+          left: 20px;
+          right: 20px;
+          bottom: 20px;
+          text-align: center;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .copy-link-btn {
+          width: 100%;
+          justify-content: center;
+          margin-right: 0;
+          margin-bottom: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Admin Access Button (Hidden) -->
+    <div class="admin-access">
+      <button id="adminLoginBtn" title="Admin Panel">
+        <i class="fas fa-lock"></i>
+      </button>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2><i class="fas fa-user-shield"></i> Admin Login</h2>
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <label for="adminUsername"
+              ><i class="fas fa-user"></i> Username</label
+            >
+            <input type="text" id="adminUsername" required />
+          </div>
+          <div class="form-group">
+            <label for="adminPassword"
+              ><i class="fas fa-key"></i> Password</label
+            >
+            <input type="password" id="adminPassword" required />
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Panel (Hidden until login) -->
+    <div id="adminPanel" class="admin-panel">
+      <div class="admin-header">
+        <h2><i class="fas fa-cogs"></i> Admin Panel</h2>
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="notices">Notice Board</button>
+        <button class="tab-btn" data-tab="executives">Executives</button>
+        <button class="tab-btn" data-tab="events">Upcoming Events</button>
+        <button class="tab-btn" data-tab="home">Home Content</button>
+        <button class="tab-btn" data-tab="about">About Content</button>
+        <button class="tab-btn" data-tab="footer">Footer</button>
+      </div>
+
+      <div class="admin-content">
+        <!-- Notices Tab -->
+        <div id="notices-tab" class="tab-content active">
+          <h3><i class="fas fa-bullhorn"></i> Manage Notices</h3>
+          <div class="notice-editor">
+            <div class="form-group">
+              <label>Notice Title</label>
+              <input
+                type="text"
+                id="noticeTitle"
+                placeholder="Enter notice title"
+              />
+            </div>
+            <div class="form-group">
+              <label>Notice Date</label>
+              <input
+                type="text"
+                id="noticeDate"
+                placeholder="e.g., November 30, 2024"
+              />
+            </div>
+            <div class="form-group">
+              <label>Notice Content</label>
+              <textarea
+                id="noticeContent"
+                rows="4"
+                placeholder="Enter notice details"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Notice Type</label>
+              <select id="noticeType">
+                <option value="normal">Normal</option>
+                <option value="urgent">Urgent</option>
+              </select>
+            </div>
+            <button id="addNoticeBtn" class="submit-btn">
+              <i class="fas fa-plus"></i> Add Notice
+            </button>
+
+            <div class="existing-notices">
+              <h4>Existing Notices</h4>
+              <div id="noticeList" class="notice-list-admin"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executives Tab -->
+        <div id="executives-tab" class="tab-content">
+          <h3><i class="fas fa-users"></i> Manage Executives</h3>
+          <div class="executive-editor">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name *</label>
+                <input
+                  type="text"
+                  id="execName"
+                  placeholder="Full Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Position *</label>
+                <input
+                  type="text"
+                  id="execPosition"
+                  placeholder="e.g., President"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Department *</label>
+                <input
+                  type="text"
+                  id="execDepartment"
+                  placeholder="e.g., Physics"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>HSC Year *</label>
+                <input
+                  type="text"
+                  id="execHSCYear"
+                  placeholder="e.g., 2024"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email *</label>
+                <input
+                  type="email"
+                  id="execEmail"
+                  placeholder="email@ngdc.edu"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Phone *</label>
+                <input
+                  type="text"
+                  id="execPhone"
+                  placeholder="+880 1XXX XXXXXX"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Picture Upload Section -->
+            <div class="form-group">
+              <label>Profile Picture</label>
+              <div class="picture-upload-container">
+                <div class="picture-preview" id="picturePreview">
+                  <i class="fas fa-user-circle"></i>
+                  <span>No picture selected</span>
+                </div>
+                <div class="upload-controls">
+                  <input
+                    type="file"
+                    id="execPicture"
+                    accept="image/*"
+                    style="display: none"
+                  />
+                  <button
+                    type="button"
+                    id="choosePictureBtn"
+                    class="upload-btn"
+                  >
+                    <i class="fas fa-folder-open"></i> Choose Picture
+                  </button>
+                  <button
+                    type="button"
+                    id="removePictureBtn"
+                    class="remove-btn"
+                    style="display: none"
+                  >
+                    <i class="fas fa-times"></i> Remove
+                  </button>
+                  <div class="upload-info">
+                    <small
+                      >Max size: 6MB | Formats: JPG, PNG, JPEG, GIF, WebP</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button id="addExecutiveBtn" class="submit-btn">
+                <i class="fas fa-plus"></i> Add Executive
+              </button>
+              <button id="clearExecutiveForm" class="clear-btn">
+                <i class="fas fa-times"></i> Clear Form
+              </button>
+            </div>
+
+            <div class="existing-executives">
+              <h4>Existing Executives</h4>
+              <div id="executiveList" class="executive-list-admin"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events Tab -->
+        <div id="events-tab" class="tab-content">
+          <h3><i class="fas fa-calendar-alt"></i> Manage Upcoming Events</h3>
+          <div class="event-editor">
+            <div class="form-group">
+              <label>Event Title *</label>
+              <input
+                type="text"
+                id="eventTitle"
+                placeholder="e.g., Annual Science Fair 2024"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Event Date *</label>
+                <input
+                  type="text"
+                  id="eventDate"
+                  placeholder="e.g., December 15, 2024"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Event Time</label>
+                <input
+                  type="text"
+                  id="eventTime"
+                  placeholder="e.g., 10:00 AM - 4:00 PM"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Event Description *</label>
+              <textarea
+                id="eventDescription"
+                rows="4"
+                placeholder="Enter event details"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Event Location</label>
+              <input
+                type="text"
+                id="eventLocation"
+                placeholder="e.g., NGDC Auditorium"
+              />
+            </div>
+            <div class="form-group">
+              <label>Event Type</label>
+              <select id="eventType">
+                <option value="workshop">Workshop</option>
+                <option value="seminar">Seminar</option>
+                <option value="competition">Competition</option>
+                <option value="exhibition">Exhibition</option>
+                <option value="meeting">Meeting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-buttons">
+              <button id="addEventBtn" class="submit-btn">
+                <i class="fas fa-plus"></i> Add Event
+              </button>
+              <button id="clearEventForm" class="clear-btn">
+                <i class="fas fa-times"></i> Clear Form
+              </button>
+            </div>
+
+            <div class="existing-events">
+              <h4>Existing Events</h4>
+              <div id="eventList" class="event-list-admin"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Home Content Tab -->
+        <div id="home-tab" class="tab-content">
+          <h3><i class="fas fa-home"></i> Edit Home Content</h3>
+          <div class="content-editor">
+            <div class="form-group">
+              <label>Club Tagline</label>
+              <input
+                type="text"
+                id="clubTagline"
+                placeholder="Enter club tagline"
+              />
+            </div>
+            <div class="form-group">
+              <label>Welcome Text</label>
+              <textarea
+                id="welcomeText"
+                rows="3"
+                placeholder="Enter welcome message"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Join Now Link</label>
+              <input
+                type="url"
+                id="joinLink"
+                placeholder="https://forms.gle/AXKhPyQ4ZBwRqUSt5"
+              />
+            </div>
+            <button id="saveHomeBtn" class="submit-btn">
+              <i class="fas fa-save"></i> Save Home Content
+            </button>
+          </div>
+        </div>
+
+        <!-- About Content Tab -->
+        <div id="about-tab" class="tab-content">
+          <h3><i class="fas fa-info-circle"></i> Edit About Content</h3>
+          <div class="content-editor">
+            <div class="form-group">
+              <label>About Description</label>
+              <textarea
+                id="aboutDescription"
+                rows="6"
+                placeholder="Enter club description"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Mission Statement</label>
+              <textarea
+                id="missionText"
+                rows="3"
+                placeholder="Enter mission statement"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Vision Statement</label>
+              <textarea
+                id="visionText"
+                rows="3"
+                placeholder="Enter vision statement"
+              ></textarea>
+            </div>
+            <button id="saveAboutBtn" class="submit-btn">
+              <i class="fas fa-save"></i> Save About Content
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer Tab -->
+        <div id="footer-tab" class="tab-content">
+          <h3><i class="fas fa-shoe-prints"></i> Edit Footer Content</h3>
+          <div class="content-editor">
+            <div class="form-group">
+              <label>Club Email</label>
+              <input
+                type="email"
+                id="footerEmail"
+                placeholder="contact@ngdcsc.edu"
+              />
+            </div>
+            <div class="form-group">
+              <label>Facebook Page Link</label>
+              <input
+                type="url"
+                id="facebookLink"
+                placeholder="https://facebook.com/ngdcsc"
+              />
+            </div>
+            <div class="form-group">
+              <label>Instagram Link</label>
+              <input
+                type="url"
+                id="instagramLink"
+                placeholder="https://instagram.com/ngdc.sc"
+              />
+            </div>
+            <button id="saveFooterBtn" class="submit-btn">
+              <i class="fas fa-save"></i> Save Footer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <img src="logo.png" alt="NGDC Science Club Logo" class="club-logo" />
+          <div class="logo-text">
+            <h2>NGDC<span>SC</span></h2>
+            <p></p>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="#home"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#executives"><i class="fas fa-users"></i> Executives</a>
+          </li>
+          <li>
+            <a href="#notice"><i class="fas fa-bullhorn"></i> Notices</a>
+          </li>
+          <li>
+            <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+          </li>
+          <li>
+            <a href="#" class="join-btn" id="mainJoinBtn"
+              ><i class="fas fa-user-plus"></i> Join Now</a
+            >
+          </li>
+        </ul>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="welcome-text" id="dynamicWelcomeText">Welcome to</h1>
+            <h1 class="club-name">NGDC Science Club</h1>
+            <p class="tagline" id="dynamicTagline">
+              Igniting Curiosity, Building Future 🔬
+            </p>
+            <p class="hero-description" id="dynamicWelcomeDesc">
+              Join Bangladesh's premier student science organization fostering
+              innovation and discovery
+            </p>
+            <a href="#" class="cta-button" id="heroJoinBtn">
+              <i class="fas fa-rocket"></i> Join Our Club Now
+            </a>
+          </div>
+          <div class="hero-image">
+            <img
+              src="Untitled design (2).png"
+              alt="NGDC Science Club Activities"
+              class="club-photo"
+            />
+          </div>
+        </div>
+
+        <div class="stats-preview">
+          <div class="stat-preview">
+            <i class="fas fa-user-graduate"></i>
+            <h3>50+</h3>
+            <p>Active Members</p>
+          </div>
+          <div class="stat-preview">
+            <i class="fas fa-trophy"></i>
+            <h3>00</h3>
+            <p>Events Hosted</p>
+          </div>
+          <div class="stat-preview">
+            <i class="fas fa-award"></i>
+            <h3>26</h3>
+            <p>Awards Won</p>
+          </div>
+          <div class="stat-preview">
+            <i class="fas fa-flask"></i>
+            <h3>04</h3>
+            <p>Projects</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executives Section -->
+    <section id="executives" class="executives">
+      <div class="container">
+        <h2 class="section-title">Our Executive Committee</h2>
+        <p class="section-subtitle">
+          Meet the dedicated team leading NGDC Science Club
+        </p>
+
+        <div class="executive-grid" id="executiveContainer">
+          <!-- Executives will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Notice Board Section -->
+    <section id="notice" class="notice-board">
+      <div class="container">
+        <h2 class="section-title">Notice Board</h2>
+        <p class="section-subtitle">Latest updates and announcements</p>
+
+        <div class="notice-container">
+          <div class="recent-notices">
+            <h3><i class="fas fa-bullhorn"></i> Recent Notices</h3>
+            <div class="notice-list" id="noticeBoardContainer">
+              <!-- Notices will be loaded dynamically -->
+            </div>
+          </div>
+
+          <div class="upcoming-events">
+            <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
+            <div class="event-timeline" id="eventContainer">
+              <!-- Events will be loaded dynamically -->
+            </div>
+
+            <div class="join-section">
+              <h3><i class="fas fa-user-plus"></i> Want to Join?</h3>
+              <p>Become part of our scientific community</p>
+              <a href="#" class="join-now-btn" id="noticeJoinBtn">
+                <i class="fas fa-external-link-alt"></i> Join Now via Google
+                Form
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About NGDC Science Club</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="about-description" id="dynamicAboutDesc">
+              NGDC Science Club (NGDCSC) is a premier student-led organization
+              established in 2026 with the mission to foster scientific
+              curiosity, innovation, and practical learning among students.
+            </p>
+
+            <div class="mission-vision">
+              <div class="mv-card">
+                <i class="fas fa-bullseye"></i>
+                <h4>Our Mission</h4>
+                <p id="dynamicMission">
+                  To create a platform where theoretical knowledge meets
+                  practical application through hands-on experiments, workshops,
+                  and collaborative projects.
+                </p>
+              </div>
+              <div class="mv-card">
+                <i class="fas fa-eye"></i>
+                <h4>Our Vision</h4>
+                <p id="dynamicVision">
+                  To develop the next generation of scientists and innovators
+                  who will contribute to scientific advancement and
+                  technological progress.
+                </p>
+              </div>
+            </div>
+
+            <h3>What We Do</h3>
+            <ul class="activities-list">
+              <li>
+                <i class="fas fa-check-circle"></i> Regular science workshops
+                and lab sessions
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Annual science fair and
+                project exhibitions
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Guest lectures by industry
+                experts
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Participation in national
+                science competitions
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Collaborative research
+                projects
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Science outreach programs
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img
+              src="logo.png"
+              alt="NGDC Science Club Logo"
+              class="footer-logo-img"
+            />
+            <div class="logo-text">
+              <h2>NGDC<span>SC</span></h2>
+              <p>Igniting scientific curiosity since 2026</p>
+            </div>
+            <div class="footer-contact">
+              <p>
+                <i class="fas fa-envelope"></i>
+                <span id="footerEmailText">ngdcsc26@gmail.com</span>
+              </p>
+              <div class="footer-social">
+                <a
+                  href="https://facebook.com/ngdcsc"
+                  id="footerFacebookLink"
+                  target="_blank"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="https://instagram.com/ngdc.sc"
+                  id="footerInstagramLink"
+                  target="_blank"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h4>Quick Navigation</h4>
+            <ul>
+              <li>
+                <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#executives"
+                  ><i class="fas fa-chevron-right"></i> Executives</a
+                >
+              </li>
+              <li>
+                <a href="#notice"
+                  ><i class="fas fa-chevron-right"></i> Notices</a
+                >
+              </li>
+              <li>
+                <a href="#about"><i class="fas fa-chevron-right"></i> About</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h4>Get Involved</h4>
+            <ul>
+              <li>
+                <a href="#" id="footerJoinBtn"
+                  ><i class="fas fa-chevron-right"></i> Join Club</a
+                >
+              </li>
+              <li>
+                <a href="#notice"
+                  ><i class="fas fa-chevron-right"></i> Upcoming Events</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Contact Executives</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> Submit Ideas</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact-info">
+            <h4>Contact Information</h4>
+            <p><strong>NGDC Science Club</strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> NGDC Campus</p>
+            <p><i class="fas fa-envelope"></i> ngdcsc26@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="currentYear"></span> NGDC Science Club. All rights
+            reserved.
+          </p>
+          <p class="developer-note">
+            Website by
+            <a
+              href="https://instagram.com/tamimiq_"
+              target="_blank"
+              class="ig-link"
+              >Tamim Iqbal</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Facebook এবং Instagram লিংক ঠিক করার জন্য জাভাস্ক্রিপ্ট
+      document.addEventListener("DOMContentLoaded", function () {
+        // ডিফল্ট সোশ্যাল মিডিয়া লিংক
+        const defaultFacebookLink = "https://facebook.com/ngdcsc";
+        const defaultInstagramLink = "https://instagram.com/ngdc.sc";
+
+        // Footer সোশ্যাল লিংক সেট করা
+        const footerFacebookLink =
+          document.getElementById("footerFacebookLink");
+        const footerInstagramLink = document.getElementById(
+          "footerInstagramLink",
+        );
+
+        // লিংক সেট করা
+        if (footerFacebookLink) {
+          footerFacebookLink.href = defaultFacebookLink;
+        }
+
+        if (footerInstagramLink) {
+          footerInstagramLink.href = defaultInstagramLink;
+        }
+
+        // Local Storage থেকে সেভ করা লিংক লোড করা
+        const savedFacebookLink = localStorage.getItem("facebookLink");
+        const savedInstagramLink = localStorage.getItem("instagramLink");
+
+        if (savedFacebookLink && footerFacebookLink) {
+          footerFacebookLink.href = savedFacebookLink;
+        }
+
+        if (savedInstagramLink && footerInstagramLink) {
+          footerInstagramLink.href = savedInstagramLink;
+        }
+
+        // Admin Panel থেকে লিংক আপডেট হলে
+        const adminFacebookInput = document.getElementById("facebookLink");
+        const adminInstagramInput = document.getElementById("instagramLink");
+        const saveFooterBtn = document.getElementById("saveFooterBtn");
+
+        if (saveFooterBtn) {
+          saveFooterBtn.addEventListener("click", function () {
+            const facebookLink =
+              adminFacebookInput.value || defaultFacebookLink;
+            const instagramLink =
+              adminInstagramInput.value || defaultInstagramLink;
+
+            // Local Storage-এ সেভ করা
+            localStorage.setItem("facebookLink", facebookLink);
+            localStorage.setItem("instagramLink", instagramLink);
+
+            // Footer-এ আপডেট করা
+            if (footerFacebookLink) {
+              footerFacebookLink.href = facebookLink;
+            }
+            if (footerInstagramLink) {
+              footerInstagramLink.href = instagramLink;
+            }
+
+            alert("Footer links updated successfully!");
+          });
+        }
+
+        // Admin Panel লোড হলে সেভ করা লিংক দেখানো
+        if (adminFacebookInput) {
+          adminFacebookInput.value =
+            localStorage.getItem("facebookLink") || defaultFacebookLink;
+        }
+        if (adminInstagramInput) {
+          adminInstagramInput.value =
+            localStorage.getItem("instagramLink") || defaultInstagramLink;
+        }
+      });
+
+      // ===== COPY LINK FUNCTIONALITY =====
+      // This function will be called from JavaScript file
+      window.copyToClipboard = function(type, index) {
+        const baseUrl = window.location.origin + window.location.pathname;
+        const fullUrl = baseUrl + '#' + type + '-' + index;
+        
+        navigator.clipboard.writeText(fullUrl).then(() => {
+          showCopySuccessMessage();
+        }).catch(err => {
+          const textarea = document.createElement('textarea');
+          textarea.value = fullUrl;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          showCopySuccessMessage();
+        });
+      }
+
+      function showCopySuccessMessage() {
+        const existingMessage = document.getElementById('copySuccessMessage');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        const message = document.createElement('div');
+        message.id = 'copySuccessMessage';
+        message.className = 'copy-success-message';
+        message.innerHTML = '<i class="fas fa-check-circle"></i> Link copied to clipboard!';
+        document.body.appendChild(message);
+        
+        setTimeout(() => {
+          message.remove();
+        }, 2000);
+      }
+
+      // Handle anchor links
+      window.addEventListener('load', function() {
+        if (window.location.hash) {
+          const hash = window.location.hash.substring(1);
+          const [type, index] = hash.split('-');
+          
+          if (type === 'notice' && index) {
+            const noticeElement = document.querySelector(`[data-notice-id="${index}"]`);
+            if (noticeElement) {
+              noticeElement.style.backgroundColor = '#fff3cd';
+              noticeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              setTimeout(() => {
+                noticeElement.style.backgroundColor = '';
+              }, 3000);
+            }
+          } else if (type === 'executive' && index) {
+            const execElement = document.querySelector(`[data-executive-id="${index}"]`);
+            if (execElement) {
+              execElement.style.backgroundColor = '#fff3cd';
+              execElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              setTimeout(() => {
+                execElement.style.backgroundColor = '';
+              }, 3000);
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
