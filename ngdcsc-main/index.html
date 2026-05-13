@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="logo.png" type="image/png" />
   <style>
-    /* Fest Section Styles */
     .fest-section {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border-radius: 20px;
@@ -20,7 +19,6 @@
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
-    
     .fest-container {
       display: flex;
       flex-wrap: wrap;
@@ -29,153 +27,53 @@
       padding: 50px;
       gap: 40px;
     }
-    
-    .fest-content {
-      flex: 1;
-      color: white;
-    }
-    
-    .fest-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    
-    .fest-content h2 i {
-      margin-right: 10px;
-    }
-    
-    .fest-content p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      opacity: 0.95;
-      line-height: 1.6;
-    }
-    
-    .fest-features {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    
-    .fest-feature {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.2);
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-    }
-    
-    .fest-feature i {
-      font-size: 1rem;
-    }
-    
+    .fest-content { flex: 1; color: white; }
+    .fest-content h2 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 700; }
+    .fest-content h2 i { margin-right: 10px; }
+    .fest-content p { font-size: 1.1rem; margin-bottom: 25px; opacity: 0.95; line-height: 1.6; }
+    .fest-features { display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+    .fest-feature { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; }
     .fest-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: white;
-      color: #764ba2;
-      padding: 15px 35px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      display: inline-flex; align-items: center; gap: 12px; background: white; color: #764ba2;
+      padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 700;
+      font-size: 1.1rem; transition: all 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
-    
-    .fest-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      background: #f0f0f0;
-    }
-    
-    .fest-image {
-      flex: 0.8;
-      text-align: center;
-    }
-    
-    .fest-image i {
-      font-size: 200px;
-      color: rgba(255,255,255,0.9);
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-    }
-    
+    .fest-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); background: #f0f0f0; }
+    .fest-image { flex: 0.8; text-align: center; }
+    .fest-image i { font-size: 200px; color: rgba(255,255,255,0.9); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); }
+    .nav-links .fest-nav-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white !important; }
+    .nav-links .fest-nav-btn:hover { background: linear-gradient(135deg, #764ba2, #667eea); transform: translateY(-2px); }
     @media (max-width: 768px) {
-      .fest-container {
-        flex-direction: column;
-        padding: 30px;
-        text-align: center;
-      }
-      .fest-features {
-        justify-content: center;
-      }
-      .fest-content h2 {
-        font-size: 1.8rem;
-      }
-      .fest-image i {
-        font-size: 120px;
-      }
+      .fest-container { flex-direction: column; padding: 30px; text-align: center; }
+      .fest-features { justify-content: center; }
+      .fest-content h2 { font-size: 1.8rem; }
+      .fest-image i { font-size: 120px; }
     }
-    
     @media (max-width: 480px) {
-      .fest-container {
-        padding: 25px;
-      }
-      .fest-content h2 {
-        font-size: 1.5rem;
-      }
-      .fest-btn {
-        padding: 12px 25px;
-        font-size: 1rem;
-      }
-    }
-
-    /* Navbar Fest Button */
-    .nav-links .fest-nav-btn {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white !important;
-    }
-    
-    .nav-links .fest-nav-btn:hover {
-      background: linear-gradient(135deg, #764ba2, #667eea);
-      transform: translateY(-2px);
+      .fest-container { padding: 25px; }
+      .fest-content h2 { font-size: 1.5rem; }
+      .fest-btn { padding: 12px 25px; font-size: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Admin Access Button -->
   <div class="admin-access">
-    <button id="adminLoginBtn" title="Admin Panel" aria-label="Admin Login">
-      <i class="fas fa-lock"></i>
-    </button>
+    <button id="adminLoginBtn" title="Admin Panel" aria-label="Admin Login"><i class="fas fa-lock"></i></button>
   </div>
 
-  <!-- Admin Login Modal -->
   <div id="adminLoginModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2><i class="fas fa-user-shield"></i> Admin Login</h2>
       <form id="adminLoginForm">
-        <div class="form-group">
-          <label for="adminUsername"><i class="fas fa-user"></i> Username</label>
-          <input type="text" id="adminUsername" required autocomplete="off" />
-        </div>
-        <div class="form-group">
-          <label for="adminPassword"><i class="fas fa-key"></i> Password</label>
-          <input type="password" id="adminPassword" required autocomplete="off" />
-        </div>
+        <div class="form-group"><label for="adminUsername"><i class="fas fa-user"></i> Username</label><input type="text" id="adminUsername" required autocomplete="off" /></div>
+        <div class="form-group"><label for="adminPassword"><i class="fas fa-key"></i> Password</label><input type="password" id="adminPassword" required autocomplete="off" /></div>
         <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
       </form>
     </div>
   </div>
 
-  <!-- Admin Panel -->
   <div id="adminPanel" class="admin-panel">
     <div class="admin-header">
       <h2><i class="fas fa-cogs"></i> Admin Panel</h2>
@@ -190,53 +88,24 @@
       <button class="tab-btn" data-tab="footer">Footer</button>
     </div>
     <div class="admin-content">
-      <!-- Notices Tab -->
       <div id="notices-tab" class="tab-content active">
         <h3><i class="fas fa-bullhorn"></i> Manage Notices</h3>
         <div class="notice-editor">
-          <div class="form-group">
-            <label>Notice Title</label>
-            <input type="text" id="noticeTitle" placeholder="Enter notice title" />
-          </div>
-          <div class="form-group">
-            <label>Notice Date</label>
-            <input type="text" id="noticeDate" placeholder="e.g., November 30, 2024" />
-          </div>
-          <div class="form-group">
-            <label>Notice Content</label>
-            <textarea id="noticeContent" rows="4" placeholder="Enter notice details"></textarea>
-          </div>
-          <div class="form-group">
-            <label>Notice Type</label>
-            <select id="noticeType">
-              <option value="normal">Normal</option>
-              <option value="urgent">Urgent</option>
-            </select>
-          </div>
+          <div class="form-group"><label>Notice Title</label><input type="text" id="noticeTitle" placeholder="Enter notice title" /></div>
+          <div class="form-group"><label>Notice Date</label><input type="text" id="noticeDate" placeholder="e.g., November 30, 2024" /></div>
+          <div class="form-group"><label>Notice Content</label><textarea id="noticeContent" rows="4" placeholder="Enter notice details"></textarea></div>
+          <div class="form-group"><label>Notice Type</label><select id="noticeType"><option value="normal">Normal</option><option value="urgent">Urgent</option></select></div>
           <button id="addNoticeBtn" class="submit-btn"><i class="fas fa-plus"></i> Add Notice</button>
-          <div class="existing-notices">
-            <h4>Existing Notices</h4>
-            <div id="noticeList" class="notice-list-admin"></div>
-          </div>
+          <div class="existing-notices"><h4>Existing Notices</h4><div id="noticeList" class="notice-list-admin"></div></div>
         </div>
       </div>
 
-      <!-- Executives Tab -->
       <div id="executives-tab" class="tab-content">
         <h3><i class="fas fa-users"></i> Manage Executives</h3>
         <div class="executive-editor">
-          <div class="form-row">
-            <div class="form-group"><label>Name *</label><input type="text" id="execName" placeholder="Full Name" required /></div>
-            <div class="form-group"><label>Position *</label><input type="text" id="execPosition" placeholder="e.g., President" required /></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Department *</label><input type="text" id="execDepartment" placeholder="e.g., Physics" required /></div>
-            <div class="form-group"><label>HSC Year *</label><input type="text" id="execHSCYear" placeholder="e.g., 2024" required /></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Email *</label><input type="email" id="execEmail" placeholder="email@ngdc.edu" required /></div>
-            <div class="form-group"><label>Phone *</label><input type="text" id="execPhone" placeholder="+880 1XXX XXXXXX" required /></div>
-          </div>
+          <div class="form-row"><div class="form-group"><label>Name *</label><input type="text" id="execName" placeholder="Full Name" required /></div><div class="form-group"><label>Position *</label><input type="text" id="execPosition" placeholder="e.g., President" required /></div></div>
+          <div class="form-row"><div class="form-group"><label>Department *</label><input type="text" id="execDepartment" placeholder="e.g., Physics" required /></div><div class="form-group"><label>HSC Year *</label><input type="text" id="execHSCYear" placeholder="e.g., 2024" required /></div></div>
+          <div class="form-row"><div class="form-group"><label>Email *</label><input type="email" id="execEmail" placeholder="email@ngdc.edu" required /></div><div class="form-group"><label>Phone *</label><input type="text" id="execPhone" placeholder="+880 1XXX XXXXXX" required /></div></div>
           <div class="form-group">
             <label>Profile Picture</label>
             <div class="picture-upload-container">
@@ -249,41 +118,24 @@
               </div>
             </div>
           </div>
-          <div class="form-buttons">
-            <button id="addExecutiveBtn" class="submit-btn"><i class="fas fa-plus"></i> Add Executive</button>
-            <button id="clearExecutiveForm" class="clear-btn"><i class="fas fa-times"></i> Clear Form</button>
-          </div>
-          <div class="existing-executives">
-            <h4>Existing Executives</h4>
-            <div id="executiveList" class="executive-list-admin"></div>
-          </div>
+          <div class="form-buttons"><button id="addExecutiveBtn" class="submit-btn"><i class="fas fa-plus"></i> Add Executive</button><button id="clearExecutiveForm" class="clear-btn"><i class="fas fa-times"></i> Clear Form</button></div>
+          <div class="existing-executives"><h4>Existing Executives</h4><div id="executiveList" class="executive-list-admin"></div></div>
         </div>
       </div>
 
-      <!-- Events Tab -->
       <div id="events-tab" class="tab-content">
         <h3><i class="fas fa-calendar-alt"></i> Manage Upcoming Events</h3>
         <div class="event-editor">
           <div class="form-group"><label>Event Title *</label><input type="text" id="eventTitle" placeholder="e.g., Annual Science Fair 2024" required /></div>
-          <div class="form-row">
-            <div class="form-group"><label>Event Date *</label><input type="text" id="eventDate" placeholder="e.g., December 15, 2024" required /></div>
-            <div class="form-group"><label>Event Time</label><input type="text" id="eventTime" placeholder="e.g., 10:00 AM - 4:00 PM" /></div>
-          </div>
+          <div class="form-row"><div class="form-group"><label>Event Date *</label><input type="text" id="eventDate" placeholder="e.g., December 15, 2024" required /></div><div class="form-group"><label>Event Time</label><input type="text" id="eventTime" placeholder="e.g., 10:00 AM - 4:00 PM" /></div></div>
           <div class="form-group"><label>Event Description *</label><textarea id="eventDescription" rows="4" placeholder="Enter event details" required></textarea></div>
           <div class="form-group"><label>Event Location</label><input type="text" id="eventLocation" placeholder="e.g., NGDC Auditorium" /></div>
           <div class="form-group"><label>Event Type</label><select id="eventType"><option value="workshop">Workshop</option><option value="seminar">Seminar</option><option value="competition">Competition</option><option value="exhibition">Exhibition</option><option value="meeting">Meeting</option><option value="other">Other</option></select></div>
-          <div class="form-buttons">
-            <button id="addEventBtn" class="submit-btn"><i class="fas fa-plus"></i> Add Event</button>
-            <button id="clearEventForm" class="clear-btn"><i class="fas fa-times"></i> Clear Form</button>
-          </div>
-          <div class="existing-events">
-            <h4>Existing Events</h4>
-            <div id="eventList" class="event-list-admin"></div>
-          </div>
+          <div class="form-buttons"><button id="addEventBtn" class="submit-btn"><i class="fas fa-plus"></i> Add Event</button><button id="clearEventForm" class="clear-btn"><i class="fas fa-times"></i> Clear Form</button></div>
+          <div class="existing-events"><h4>Existing Events</h4><div id="eventList" class="event-list-admin"></div></div>
         </div>
       </div>
 
-      <!-- Home Content Tab -->
       <div id="home-tab" class="tab-content">
         <h3><i class="fas fa-home"></i> Edit Home Content</h3>
         <div class="content-editor">
@@ -295,7 +147,6 @@
         </div>
       </div>
 
-      <!-- About Content Tab -->
       <div id="about-tab" class="tab-content">
         <h3><i class="fas fa-info-circle"></i> Edit About Content</h3>
         <div class="content-editor">
@@ -306,7 +157,6 @@
         </div>
       </div>
 
-      <!-- Footer Tab -->
       <div id="footer-tab" class="tab-content">
         <h3><i class="fas fa-shoe-prints"></i> Edit Footer Content</h3>
         <div class="content-editor">
@@ -319,7 +169,6 @@
     </div>
   </div>
 
-  <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
       <div class="logo">
@@ -338,7 +187,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
@@ -360,7 +208,6 @@
     </div>
   </section>
 
-  <!-- Executives Section -->
   <section id="executives" class="executives">
     <div class="container">
       <h2 class="section-title">Our Executive Committee</h2>
@@ -369,7 +216,6 @@
     </div>
   </section>
 
-  <!-- FEST SECTION - Before Notice Board -->
   <div class="container">
     <div class="fest-section">
       <div class="fest-container">
@@ -384,37 +230,26 @@
           </div>
           <a href="#" id="festRegisterBtn" class="fest-btn"><i class="fas fa-ticket-alt"></i> Register Now →</a>
         </div>
-        <div class="fest-image">
-          <i class="fas fa-flask"></i>
-        </div>
+        <div class="fest-image"><i class="fas fa-flask"></i></div>
       </div>
     </div>
   </div>
 
-  <!-- Notice Board Section -->
   <section id="notice" class="notice-board">
     <div class="container">
       <h2 class="section-title">Notice Board</h2>
       <p class="section-subtitle">Latest updates and announcements</p>
       <div class="notice-container">
-        <div class="recent-notices">
-          <h3><i class="fas fa-bullhorn"></i> Recent Notices</h3>
-          <div class="notice-list" id="noticeBoardContainer"></div>
-        </div>
+        <div class="recent-notices"><h3><i class="fas fa-bullhorn"></i> Recent Notices</h3><div class="notice-list" id="noticeBoardContainer"></div></div>
         <div class="upcoming-events">
           <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
           <div class="event-timeline" id="eventContainer"></div>
-          <div class="join-section">
-            <h3><i class="fas fa-user-plus"></i> Want to Join?</h3>
-            <p>Become part of our scientific community</p>
-            <a href="#" class="join-now-btn" id="noticeJoinBtn"><i class="fas fa-external-link-alt"></i> Join Now via Google Form</a>
-          </div>
+          <div class="join-section"><h3><i class="fas fa-user-plus"></i> Want to Join?</h3><p>Become part of our scientific community</p><a href="#" class="join-now-btn" id="noticeJoinBtn"><i class="fas fa-external-link-alt"></i> Join Now via Google Form</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
       <h2 class="section-title">About NGDC Science Club</h2>
@@ -439,7 +274,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
@@ -458,69 +292,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Fest Registration URL - can be changed from admin panel
-    const DEFAULT_FEST_URL = "https://ngdcsc.fest.netlify.app";
-    let currentFestUrl = DEFAULT_FEST_URL;
-
-    // Load fest URL from localStorage
-    function loadFestUrl() {
-      const content = JSON.parse(localStorage.getItem("ngdcscContent") || "{}");
-      if (content.festLink) {
-        currentFestUrl = content.festLink;
-      } else {
-        currentFestUrl = DEFAULT_FEST_URL;
-      }
-    }
-
-    // Open fest URL
-    function openFestRegistration() {
-      loadFestUrl();
-      window.open(currentFestUrl, "_blank");
-    }
-
-    // Set up fest buttons
-    function setupFestButtons() {
-      const festNavBtn = document.getElementById("festNavBtn");
-      const festRegisterBtn = document.getElementById("festRegisterBtn");
-      
-      if (festNavBtn) {
-        festNavBtn.addEventListener("click", function(e) {
-          e.preventDefault();
-          openFestRegistration();
-        });
-      }
-      
-      if (festRegisterBtn) {
-        festRegisterBtn.addEventListener("click", function(e) {
-          e.preventDefault();
-          openFestRegistration();
-        });
-      }
-    }
-
-    // Update fest link from admin panel
-    function updateFestLinkInAdmin() {
-      const saveHomeBtn = document.getElementById("saveHomeBtn");
-      if (saveHomeBtn) {
-        const originalClick = saveHomeBtn.onclick;
-        saveHomeBtn.addEventListener("click", function() {
-          setTimeout(() => {
-            const content = JSON.parse(localStorage.getItem("ngdcscContent") || "{}");
-            if (content.festLink) {
-              currentFestUrl = content.festLink;
-            }
-          }, 100);
-        });
-      }
-    }
-
-    // Run after DOM is ready
-    document.addEventListener("DOMContentLoaded", function() {
-      setupFestButtons();
-      updateFestLinkInAdmin();
-      loadFestUrl();
-    });
-  </script>
 </body>
 </html>
